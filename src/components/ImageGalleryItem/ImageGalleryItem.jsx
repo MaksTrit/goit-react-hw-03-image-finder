@@ -14,14 +14,7 @@ export class ImageGalleryItem extends Component {
     }));
   };
 
-  showModal = () => {
-    this.setState({ isModalOpen: true });
-  };
-
-  hideModal = () => {
-    this.setState({ isModalOpen: false });
-  };
-
+ 
   render() {
     const { isModalOpen } = this.state;
     const { smallImg, tags, largeImg } = this.props;
@@ -29,14 +22,14 @@ export class ImageGalleryItem extends Component {
     return (
       <>
         <ImgGalleryItemStyled>
-          <img src={smallImg} alt={tags} onClick={this.showModal} />
+          <img src={smallImg} alt={tags} onClick={this.toogleModal} />
         </ImgGalleryItemStyled>
         {isModalOpen && (
           <ModalWindow
             isOpen={isModalOpen}
             tags={tags}
             img={largeImg}
-            onClose={this.hideModal}
+            onClose={this.toogleModal}
           />
         )}
       </>
